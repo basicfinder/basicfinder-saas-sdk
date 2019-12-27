@@ -1,7 +1,7 @@
 {
-    "name": "basicfinder/basicfinder_saas_sdk",
+    "name": "basicfinder/basicfinder-saas-sdk",
     "type": "library",
-    "description": "basicfinder/basicfinder_saas_sdk API action that also provides common utility methods",
+    "description": "basicfinder/basicfinder-saas-sdk API action that also provides common utility methods",
     "keywords": ["basicfinder", "saas", "sdk", "yii2", "helper","api"],
     "license": "BSD-3-Clause",
     "authors": [
