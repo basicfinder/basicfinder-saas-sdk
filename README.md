@@ -10,7 +10,7 @@ composer require basicfinder/basicfinder-saas-sdk
 
 ```php
     $saasapi = new BasicfinderSaas();
-    $saasapi->auth('liujianping@basicfinder.com', '1234565', 'pc-root', '1.0.0');
+    $saasapi->auth('abcd@basicfinder.com', 'pwd123456', 'pc-root', '1.0.0');
     $accesstoken = $saasapi->getAccessToken();
     var_dump($accesstoken);
     $userInfo = $saasapi->user->detail();
