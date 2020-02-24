@@ -29,9 +29,6 @@ if (!empty($result['error']))
 }
 var_dump($result['data']);
 
-$accesstoken = $saasapi->getAccessToken();
-var_dump($accesstoken);
-
 $userInfo = $saasapi->user->detail();
 var_dump($userInfo);
 ```
