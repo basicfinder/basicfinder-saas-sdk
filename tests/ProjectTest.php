@@ -1,28 +1,29 @@
 <?php
-namespace BasicfinderSaas\Test;
+
+defined('BASICFINDER_ENV') or define('BASICFINDER_ENV', 'dev');
+
+include __DIR__.'/../autoload.php';
 
 use BasicfinderSaas\BasicfinderSaas;
 
 class ProjectTest
 {
-    private $saas;
-    /**
-     * project Driver 选择
-     * ProjectTest constructor.
-     */
-    public function __construct()
-    {
-        $this->saas = new BasicfinderSaas();
-        $this->saas->auth('1234566@qq.com', 'bf123456', 'pc-passport',
-            '1.0.0', 'Win32', '111');
-    }
-
     /**
      * 项目列表
      * @return mixed
      */
     public function projects()
     {
+        $saas = new BasicfinderSaas();
+        $user = $saas->auth('1234566@qq.com', 'bf123456', 'pc-passport', '1.0.0', 'Win32', '111');
+        
+        if (!empty($user['error']))
+        {
+            var_dump($user);
+            exit();
+        }
+        
+        
         $params = [
             /**
              * 可选参数
@@ -44,7 +45,10 @@ class ProjectTest
             user_is_tender	否	int	是否获取租户已参与竞标信息,0:否(默认),1:是
              */
         ];
-        return $this->saas->project->projects($params);
+        $list = $saas->project->projects($params);
+        var_dump($list);
+        
+        return ;
         /**
          * 返回数据
          * array ( 'error' => '', 'message' => '', 'data' => array ( 'count' => '1', 'list' => array ( 0 => array ( 'id' => '15241', 'site_id' => '363', 'name' => '图片标注-test-1', 'internal_name' => '', 'user_id' => '38032', 'category_id' => '11', 'template_id' => '0', 'step_process_id' => '0', 'type' => '2', 'status' => '1', 'amount' => '0', 'data_count' => '0', 'disk_space' => '0.000', 'table_suffix' => '1912', 'start_time' => '1576488618', 'end_time' => '1579080618', 'created_at' => '1576488618', 'updated_at' => '1576488779', 'site' => array ( 'id' => '363', 'name' => 'test-rent', ), 'user' => array ( 'id' => '38032', 'email' => '1234566@qq.com', 'nickname' => 'liu-admin', 'type' => '1', 'language' => '0', ), 'category' => array ( 'id' => '11', 'type' => '0', 'status' => '0', 'file_type' => '0', 'view' => 'image_label', 'draw_type' => '', 'file_extensions' => 'jpg,jpeg,png,bmp,tif', 'upload_file_extensions' => 'xls,xlsx,csv,zip', 'icon' => '/images/category/icon-small/image-labelling.png', 'thumbnail' => '/images/category/icon-big/image-labelling.png', 'video_as_frame' => '1', 'desc' => array ( 'id' => '61', 'category_id' => '11', 'language' => 'zh-CN', 'name' => '图片标注', 'keywords' => '图片，矩形框', 'description' => '在图片中将规定的品类用矩形框标出', 'instruction_url' => '/images/category/preview/rzbk.png', 'template_id' => '329', ), ), 'unpack' => '', 'batches' => array ( ), ), ), 'categories' => array ( 11 => '图片标注', ), 'types' => array ( 0 => '未选择(发布中)', 1 => '自有团队', 2 => '倍赛数据运营中心', ), 'statuses' => array ( 0 => '发布中', 1 => '审核中', 2 => '作业中', 3 => '已暂停', 5 => '完成', 7 => '已拒绝', ), 'unpack_statuses' => array ( 0 => '默认状态', 1 => '待解包', 2 => '解包中', 3 => '解包成功', 4 => '解包失败', ), ), )
@@ -541,3 +545,7 @@ class ProjectTest
     }
 
 }
+
+
+$test = new ProjectTest();
+var_dump($test->projects());

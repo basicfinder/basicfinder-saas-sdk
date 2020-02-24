@@ -215,69 +215,6 @@ class BasicfinderSaas
     }
 
     /**
-     * root admin team 登录
-     * @param $username
-     * @param $password
-     * @param $appKey
-     * @param $appVersion
-     * @param string $deviceName
-     * @param string $deviceNumber
-     * @param null $systemVersion
-     * @return mixed
-     */
-    public function auth($username, $password, $appKey = 'pc-root', $appVersion = '1.0.0', $deviceName = 'Win32', $deviceNumber = '666', $systemVersion = null)
-    {
-        $this->username = $username;
-        $this->password = $password;
-        $this->appKey = $appKey;
-        $this->appVersion = $appVersion;
-        $this->deviceName = $deviceName;
-        $this->deviceNumber = $deviceNumber;
-        $this->systemVersion = $systemVersion;
-        $params = [
-            'username' => $this->username,
-            'password' => $this->password,
-            'app_key' => $this->appKey,
-            'app_version' => $this->appVersion,
-            'device_name' => $this->deviceName,
-            'device_number' => $this->deviceNumber
-        ];
-        $systemVersion && $params["system_version"] = $systemVersion;
-        return $this->user->login($params);
-    }
-
-    /**
-     * 众包登录
-     * @param $username
-     * @param $password
-     * @param $appKey
-     * @param $appVersion
-     * @param string $deviceName
-     * @param string $deviceNumber
-     * @return mixed
-     */
-    public function authCrowdsourcing($username, $password, $appKey = 'pc-crowdsourcing', $appVersion = '1.0.0', $deviceName = 'Win32', $deviceNumber = '111', $language = 0)
-    {
-        $this->username = $username;
-        $this->password = $password;
-        $this->appKey = $appKey;
-        $this->appVersion = $appVersion;
-        $this->deviceName = $deviceName;
-        $this->deviceNumber = $deviceNumber;
-        $this->language = $language;
-        $params = [
-            'username' => $this->username,
-            'password' => $this->password,
-            'app_key' => $this->appKey,
-            'app_version' => $this->appVersion,
-            'device_name' => $this->deviceName,
-            'device_number' => $this->deviceNumber,
-            'language' => $this->language
-        ];
-        return $this->user->loginCrowdsourcing($params);
-    }
-
-    /**
      * @param $class
      * @return Object
      * @throws BaseException

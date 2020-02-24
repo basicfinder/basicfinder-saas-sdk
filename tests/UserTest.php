@@ -10,8 +10,8 @@ class UserTest
 
     public function __construct()
     {
-        $this->saas = new BasicfinderSaas();
-        $this->saas->auth('liujianping@basicfinder.com', 'bf123456');
+        $saas = new BasicfinderSaas();
+        $saas->auth('liujianping@basicfinder.com', 'bf123456');
     }
 
     /**

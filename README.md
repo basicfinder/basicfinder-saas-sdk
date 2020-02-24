@@ -8,14 +8,32 @@ composer require basicfinder/basicfinder-saas-sdk
 
 # 代码中使用
 
-```php
-    $saasapi = new BasicfinderSaas();
-    $saasapi->auth('abcd@basicfinder.com', 'pwd123456', 'pc-root', '1.0.0');
-    $accesstoken = $saasapi->getAccessToken();
-    var_dump($accesstoken);
-    $userInfo = $saasapi->user->detail();
-    var_dump($userInfo);
-```
 
+```php
+$saasapi = new BasicfinderSaas();
+
+$params = [
+    'username' => 'your email',
+    'password' => 'your password',
+    'app_key' => 'pc-passport',
+    'app_version' => '1.0.0',
+    'device_name' => 'Win32',
+    'device_number' => '111'
+];
+$result = $saasapi->user->login($params);
+
+if (!empty($result['error']))
+{
+    var_dump($result);
+    exit();
+}
+var_dump($result['data']);
+
+$accesstoken = $saasapi->getAccessToken();
+var_dump($accesstoken);
+
+$userInfo = $saasapi->user->detail();
+var_dump($userInfo);
+```
 
 # [List API 请求参数和返回值说明](http://saas.help.basicfinder.com/apidoc/)
