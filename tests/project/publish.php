@@ -1,10 +1,10 @@
 <?php
 
 /*****************************************************
- * 测试:获取项目的项目列表
+ * 测试:发布项目的流程
  * 
  * 使用方法:
- * php login.php
+ * php publish.php
  * ***************************************************
  */
 
@@ -17,6 +17,7 @@ use BasicfinderSaas\SaasApi;
 
 $saasapi = new SaasApi();
 
+//登录账户
 $account = require(__DIR__.'/../config/account.php');
 $result = $saasapi->user->login($account);
 
@@ -30,4 +31,11 @@ var_dump($result['data']);
 $userInfo = $saasapi->user->detail();
 var_dump($userInfo);
 
+//第一步, 创建项目
+$params = [
+    'page' => 1,
+    'count' => 10
+];
+$list = $saasapi->project->projects($params);
+var_dump($list);
 
