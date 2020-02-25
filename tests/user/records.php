@@ -1,10 +1,10 @@
 <?php
 
 /*****************************************************
- * 测试:平台登录并获取个人信息
+ * 测试:查询用户的操作记录列表
  *
  * 使用方法:
- * php login.php
+ * php records.php
  * ***************************************************
  */
 
@@ -34,7 +34,7 @@ if (!empty($result['error']))
 }
 var_dump($result['data']);
 
-$userInfo = $saasapi->user->detail();
-var_dump($userInfo);
+$recordsResult = $saasapi->user->records();
+var_dump($recordsResult);
 
 

@@ -1,10 +1,10 @@
 <?php
 
 /*****************************************************
- * 测试:平台登录并获取个人信息
+ * 测试:创建新的用户
  *
  * 使用方法:
- * php login.php
+ * php create.php
  * ***************************************************
  */
 
@@ -34,7 +34,15 @@ if (!empty($result['error']))
 }
 var_dump($result['data']);
 
-$userInfo = $saasapi->user->detail();
-var_dump($userInfo);
+$params = [
+    "email" => "1234566@qq.com",
+    "password" => 'bf123456',
+    "roles" => 'team_worker',
+    "type" => 2,
+    "site_id" => 363,
+    "team_id" => 1421
+];
+$createResult = $saasapi->user->create($params);
+var_dump($createResult);
 
 

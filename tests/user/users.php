@@ -1,10 +1,10 @@
 <?php
 
 /*****************************************************
- * 测试:平台登录并获取个人信息
+ * 测试:获取用户列表
  *
  * 使用方法:
- * php login.php
+ * php users.php
  * ***************************************************
  */
 
@@ -34,7 +34,11 @@ if (!empty($result['error']))
 }
 var_dump($result['data']);
 
-$userInfo = $saasapi->user->detail();
-var_dump($userInfo);
+$params = [
+    'page' => 1,
+    'limit' => 10
+];
+$usersResult = $saasapi->user->users($params);
+var_dump($usersResult);
 
 

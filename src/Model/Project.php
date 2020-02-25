@@ -9,7 +9,7 @@ class Project extends BaseApi
     /**
      * 项目列表只展示正常状态（发布中，配置中，作业中，已暂停，完成）的项目信息列表。
      * @param $params
-     * 
+     *
         keyword	        否	String	关键字搜索
         type	        否	String	项目类型
         name	        否	String	项目名称
@@ -38,6 +38,8 @@ class Project extends BaseApi
      * 发布项目: 第一步
      * 此接口是发布项目的第一步, 将根据指定的分类创建一个空的项目。
      * @param $params
+     /* 可选参数
+        category_id	是	int	项目分类id
      * @return bool|mixed|string
      */
     public function create($params = array())

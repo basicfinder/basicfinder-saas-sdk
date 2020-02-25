@@ -1,10 +1,10 @@
 <?php
 
 /*****************************************************
- * 测试:平台登录并获取个人信息
+ * 测试:获取到用户的使用设备信息列表
  *
  * 使用方法:
- * php login.php
+ * php devices.php
  * ***************************************************
  */
 
@@ -34,7 +34,12 @@ if (!empty($result['error']))
 }
 var_dump($result['data']);
 
-$userInfo = $saasapi->user->detail();
-var_dump($userInfo);
+$params = [
+    "user_id" => 38028,
+    "limit" => 5,
+    "page" => 1
+];
+$devicesResult = $saasapi->user->devices($params);
+var_dump($devicesResult);
 
 

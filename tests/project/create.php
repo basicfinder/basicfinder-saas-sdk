@@ -1,10 +1,10 @@
 <?php
 
 /*****************************************************
- * 测试:平台登录并获取个人信息
+ * 测试: 创建一个新的项目
  *
  * 使用方法:
- * php login.php
+ * php create.php
  * ***************************************************
  */
 
@@ -34,7 +34,9 @@ if (!empty($result['error']))
 }
 var_dump($result['data']);
 
-$userInfo = $saasapi->user->detail();
-var_dump($userInfo);
-
+$params = [
+    "category_id" => 11
+];
+$creteResult = $saasapi->project->create($params);
+var_dump($creteResult);
 
