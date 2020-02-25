@@ -21,7 +21,7 @@ $params = [
     'app_key' => 'pc-passport',
     'app_version' => '1.0.0',
     'device_name' => 'Win32',
-    'device_number' => '111'
+    'device_number' => '123456'
 ];
 $result = $saasapi->user->login($params);
 
