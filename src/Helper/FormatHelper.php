@@ -14,18 +14,5 @@ class FormatHelper
     {
         return array('data' => $data, 'error' => $errno, 'message' => $error);
     }
-
-    /**
-     * @param $uri
-     * @param $data
-     * @param $method
-     */
-    public static function methodGetProcess(&$uri, &$data, $method)
-    {
-        if ($method == 'GET' && !empty($data) ) {
-            is_array($data) && $data = http_build_query($data);
-            $uri = strpos($uri, '?') ? $uri . $data : $uri . '?' . $data;
-            $data = [];
-        }
-    }
+    
 }

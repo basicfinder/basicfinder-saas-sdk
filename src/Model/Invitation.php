@@ -12,7 +12,7 @@ class Invitation extends BaseApi
      */
     public function create($params = array())
     {
-        return $this->post('/invitation/create', $params);
+        return $this->postWithAccessToken('/invitation/create', $params);
     }
 
     /**
@@ -22,6 +22,6 @@ class Invitation extends BaseApi
      */
     public function userList($params = array())
     {
-        return $this->post('/invitation/user-list', $params);
+        return $this->postWithAccessToken('/invitation/user-list', $params);
     }
 }

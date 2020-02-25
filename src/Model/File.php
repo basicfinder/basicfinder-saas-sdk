@@ -3,7 +3,6 @@
 namespace BasicfinderSaas\Model;
 
 use BasicfinderSaas\Core\BaseApi;
-use BasicfinderSaas\Core\BaseException;
 
 class File extends BaseApi
 {
@@ -14,18 +13,9 @@ class File extends BaseApi
      */
     public function uploadPrivateFile($params = array())
     {
-        if (isset($params["file"])) {
-            $exist = file_exists($params["file"]);
-            if (!$exist) {
-                throw new BaseException('Error! File "' . $params["file"] . '" Not Exist .', 500);
-            }
-            $info = pathinfo($params["file"]);
-            $params["filename"] = $info["basename"];
-            $params["file"] = file_get_contents($params["file"]);
-        }
-        return $this->put('/site/upload-private-file', $params);
+        return $this->postWithAccessToken('/site/upload-private-file', $params);
     }
-
+    
     /**
      * 下载私有文件
      * @param $params
@@ -43,16 +33,7 @@ class File extends BaseApi
      */
     public function uploadResourceFile($params = array())
     {
-        if (isset($params["file"])) {
-            $exist = file_exists($params["file"]);
-            if (!$exist) {
-                throw new BaseException('Error! File "' . $params["file"] . '" Not Exist .', 500);
-            }
-            $info = pathinfo($params["file"]);
-            $params["filename"] = $info["basename"];
-            $params["file"] = file_get_contents($params["file"]);
-        }
-        return $this->put('/site/upload-resource-file', $params);
+        return $this->postWithAccessToken('/site/upload-resource-file', $params);
     }
 
     /**
