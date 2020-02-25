@@ -2,6 +2,7 @@
 
 /**
  * 
+ * 执行方法:
  * php projects.php
  * 
  */
@@ -13,18 +14,10 @@ include __DIR__.'/../../autoload.php';
 
 use BasicfinderSaas\BasicfinderSaas;
 
-
 $saasapi = new BasicfinderSaas();
 
-$params = [
-    'username' => '1234566@qq.com',
-    'password' => 'bf123456',
-    'app_key' => 'pc-passport',
-    'app_version' => '1.0.0',
-    'device_name' => 'Win32',
-    'device_number' => '111'
-];
-$result = $saasapi->user->login($params);
+$account = require(__DIR__.'/../config/account.php');
+$result = $saasapi->user->login($account);
 
 if (!empty($result['error']))
 {

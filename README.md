@@ -10,6 +10,9 @@ composer require basicfinder/basicfinder-saas-sdk
 
 
 ```php
+
+use BasicfinderSaas\BasicfinderSaas;
+
 $saasapi = new BasicfinderSaas();
 
 $params = [
