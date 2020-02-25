@@ -4,47 +4,8 @@ namespace BasicfinderSaas\Helper;
 
 class HttpHelper
 {
-    /**
-     * @param $url
-     * @param array $data
-     * @return bool|string
-     */
-
-    private static function uploadfileHeaders ($filename, $content)
-    {
-        $delimiter = uniqid();
-        
-        $eol = "\r\n";
-        $upload = $param['file'];
-        $filename = $param['filename'];
-        unset($param['file']);
-        unset($param['filename']);
-
-        $data = '';
-        foreach ($param as $name => $content)
-        {
-            $data .= "--" . $delimiter . "\r\n"
-                . 'Content-Disposition: form-data; name="' . $name . "\"\r\n\r\n"
-                . $content . "\r\n";
-        }
-
-        $data .= "--" . $delimiter . $eol
-            . 'Content-Disposition: form-data; name="file"; filename="' . $filename . '"' . "\r\n"
-            . 'Content-Type:application/octet-stream'."\r\n\r\n";
-
-        $data .= $upload . "\r\n";
-        $data .= "--" . $delimiter . "--\r\n";
-        
-        return [
-            "Content-Type: multipart/form-data; boundary=" . $delimiter,
-            "Content-Length: " . strlen($data)
-        ];
-    }
-
     public static function request($url,$params=array(),$requestMethod='GET',$headers=array())
     {
-        $_logs = ['$url' => $url, '$requestMethod' => $requestMethod, '$headers' => $headers];
-    
         $ci = curl_init();
         curl_setopt($ci, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
         curl_setopt($ci, CURLOPT_USERAGENT, '1001 Magazine v1');
@@ -59,6 +20,34 @@ class HttpHelper
         switch ($requestMethod) {
             case 'POST':
                 curl_setopt($ci, CURLOPT_POST, TRUE);
+                
+                //处理上传文件
+                if ($params && is_array($params))
+                {
+                    $fileName = '';
+                    $filePath = '';
+                    foreach ($params as $k => $v)
+                    {
+                        if (substr($v, 0, 1) === '@')
+                        {
+                            $fileName = $k;
+                            $filePath = substr($v, 1);
+                            break;
+                        }
+                    }
+                    
+                    $fileMime = FileHelper::getMimeTypeByExtension($filePath);
+                    if ($fileMime)
+                    {
+                        $fileContents = @file_get_contents($filePath);
+                        if ($fileContents)
+                        {
+                            list($params, $headers) = self::uploadfile($filePath, $fileContents, $fileMime, $params);
+                        }
+                    }
+                    
+                }
+                
                 if ($params) {
                     curl_setopt($ci, CURLOPT_POSTFIELDS, $params);
                 }
@@ -66,21 +55,6 @@ class HttpHelper
                     curl_setopt($ci, CURLOPT_POSTFIELDS, ''); // Don't know why: if not set,  413 Request Entity Too Large
                 }
     
-                if ($params && is_array($params))
-                {
-                    $params_ = [];
-                    foreach ($params as $k => $v)
-                    {
-                        $l = strlen($v);
-                        $params_[$k] = $l > 50 ? substr($v, 0, 50) . '###length:'.$l : $v;
-                    }
-                    $_logs['$params'] = $params;
-                }
-                else
-                {
-                    $l = strlen($params);
-                    $_logs['$params'] = $l > 50 ? substr($params, 0, 50) . '###length:'.$l : $params;
-                }
                 break;
             case 'DELETE':
                 curl_setopt($ci, CURLOPT_CUSTOMREQUEST, 'DELETE');
@@ -88,8 +62,6 @@ class HttpHelper
                     $url = "{$url}?{$params}";
                 }
     
-                $_logs['$url'] = $url;
-                $_logs['$params'] = $params;
                 break;
             case 'GET':
                 if($params) {
@@ -101,8 +73,6 @@ class HttpHelper
                     }
                 }
     
-                $_logs['$url'] = $url;
-                $_logs['$params'] = $params;
                 break;
             case 'PUT':
                 if($params) {
@@ -110,8 +80,6 @@ class HttpHelper
                     curl_setopt($ci, CURLOPT_POSTFIELDS, $params);
                 }
     
-                $_logs['$url'] = $url;
-                $_logs['$params'] = $params;
                 break;
         }
     
@@ -132,8 +100,44 @@ class HttpHelper
             'message' => ''
         );
         //$httpInfo = curl_getinfo($ci);
-        $_logs['$httpTime'] = $httpTime;
-        $_logs['$httpCode'] = $httpCode;
         return $return;
+    }
+    
+    /**
+     * @param $url
+     * @param array $data
+     * @return bool|string
+     */
+    
+    private static function uploadfile($filename, $content, $fileMime, $otherParams)
+    {
+        $delimiter = uniqid();
+    
+        $data = '';
+        if ($otherParams)
+        {
+            foreach ($otherParams as $_key => $_val)
+            {
+                $data .= "--" . $delimiter . "\r\n"
+                    . 'Content-Disposition: form-data; name="' . $_key . "\"\r\n\r\n"
+                        . $_val . "\r\n";
+            }
+        }
+        
+    
+        $data .= "--" . $delimiter . "\r\n"
+            . 'Content-Disposition: form-data; name="file"; filename="' . $filename . '"' . "\r\n"
+                . 'Content-Type:'.$fileMime."\r\n\r\n";
+    
+        $data .= $content . "\r\n";
+        $data .= "--" . $delimiter . "--\r\n";
+    
+    
+        $headers = [
+            "Content-Type: multipart/form-data; boundary=" . $delimiter,
+            "Content-Length: " . strlen($data)
+        ];
+    
+        return [$data, $headers];
     }
 }

@@ -47,14 +47,14 @@ class BaseApi
      * @param $params
      * @return bool|mixed|string
      */
-    public function post($uri, $params)
+    public function post($uri, $params, $headers = [])
     {
-        return $this->api->request($uri, $params, 'POST');
+        return $this->api->request($uri, $params, 'POST', $headers);
     }
     
-    public function postWithAccessToken($uri, $params)
+    public function postWithAccessToken($uri, $params, $headers = [])
     {
-        return $this->api->requestWithAccessToken($uri, $params, 'POST');
+        return $this->api->requestWithAccessToken($uri, $params, 'POST', $headers);
     }
     
 }
