@@ -23,7 +23,7 @@ class File extends BaseApi
             $params["filename"] = $info["basename"];
             $params["file"] = file_get_contents($params["file"]);
         }
-        return $this->put('/site/upload-private-file', $params);
+        return $this->postWithAccessToken('/site/upload-private-file', $params);
     }
 
     /**
@@ -52,7 +52,7 @@ class File extends BaseApi
             $params["filename"] = $info["basename"];
             $params["file"] = file_get_contents($params["file"]);
         }
-        return $this->put('/site/upload-resource-file', $params);
+        return $this->postWithAccessToken('/site/upload-resource-file', $params);
     }
 
     /**

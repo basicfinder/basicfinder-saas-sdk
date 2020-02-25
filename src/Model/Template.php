@@ -15,7 +15,7 @@ class Template extends BaseApi
     {
         $default = ["limit" => 10, "page" => 1];
         $params = array_merge($default, $params);
-        return $this->post('/template/list', $params);
+        return $this->postWithAccessToken('/template/list', $params);
     }
 
     /**
@@ -25,7 +25,7 @@ class Template extends BaseApi
      */
     public function form($params = array())
     {
-        return $this->post('/template/form', $params);
+        return $this->postWithAccessToken('/template/form', $params);
     }
 
     /**
@@ -35,7 +35,7 @@ class Template extends BaseApi
      */
     public function create($params = array())
     {
-        return $this->post('/template/create', $params);
+        return $this->postWithAccessToken('/template/create', $params);
     }
 
     /**
@@ -45,7 +45,7 @@ class Template extends BaseApi
      */
     public function detail($params = array())
     {
-        return $this->post('/template/detail', $params);
+        return $this->postWithAccessToken('/template/detail', $params);
     }
 
     /**
@@ -55,7 +55,7 @@ class Template extends BaseApi
      */
     public function update($params = array())
     {
-        return $this->post('/template/update', $params);
+        return $this->postWithAccessToken('/template/update', $params);
     }
 
     /**
@@ -65,7 +65,7 @@ class Template extends BaseApi
      */
     public function copy($params = array())
     {
-        return $this->post('/template/copy', $params);
+        return $this->postWithAccessToken('/template/copy', $params);
     }
 
     /**
@@ -75,7 +75,7 @@ class Template extends BaseApi
      */
     public function delete($params = array())
     {
-        return $this->post('/template/delete', $params);
+        return $this->postWithAccessToken('/template/delete', $params);
     }
 
     /**
@@ -85,7 +85,7 @@ class Template extends BaseApi
      */
     public function useTemplate($params = array())
     {
-        return $this->post('/template/use', $params);
+        return $this->postWithAccessToken('/template/use', $params);
     }
 
 

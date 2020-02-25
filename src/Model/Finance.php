@@ -13,7 +13,7 @@ class Finance extends BaseApi
      */
     public function moneys($params = array())
     {
-        return $this->post('/money/moneys', $params);
+        return $this->postWithAccessToken('/money/moneys', $params);
     }
 
     /**
@@ -23,7 +23,7 @@ class Finance extends BaseApi
      */
     public function moneyDetail($params = array())
     {
-        return $this->post('/money/money-detail', $params);
+        return $this->postWithAccessToken('/money/money-detail', $params);
     }
 
     /**
@@ -33,7 +33,7 @@ class Finance extends BaseApi
      */
     public function withdrawals($params = array())
     {
-        return $this->post('/money/withdrawals', $params);
+        return $this->postWithAccessToken('/money/withdrawals', $params);
     }
 
     /**
@@ -43,7 +43,7 @@ class Finance extends BaseApi
      */
     public function withdrawalForm($params = array())
     {
-        return $this->post('/money/withdrawal-form', $params);
+        return $this->postWithAccessToken('/money/withdrawal-form', $params);
     }
 
     /**
@@ -53,7 +53,7 @@ class Finance extends BaseApi
      */
     public function withdrawalCreate($params = array())
     {
-        return $this->post('/money/withdrawal-create', $params);
+        return $this->postWithAccessToken('/money/withdrawal-create', $params);
     }
 
     /**
@@ -63,7 +63,7 @@ class Finance extends BaseApi
      */
     public function withdrawalUpdate($params = array())
     {
-        return $this->post('/money/withdrawal-update', $params);
+        return $this->postWithAccessToken('/money/withdrawal-update', $params);
     }
 
     /**
@@ -73,7 +73,7 @@ class Finance extends BaseApi
      */
     public function tasks($params = array())
     {
-        return $this->post('/money/tasks', $params);
+        return $this->postWithAccessToken('/money/tasks', $params);
     }
 
     /**
@@ -83,7 +83,7 @@ class Finance extends BaseApi
      */
     public function works($params = array())
     {
-        return $this->post('/money/works', $params);
+        return $this->postWithAccessToken('/money/works', $params);
     }
 
 

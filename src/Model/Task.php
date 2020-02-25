@@ -15,7 +15,7 @@ class Task extends BaseApi
     {
         $default = ["limit" => 10, "page" => 1];
         $params = array_merge($default, $params);
-        return $this->post('/task/list', $params);
+        return $this->postWithAccessToken('/task/list', $params);
     }
 
     /**
@@ -25,7 +25,7 @@ class Task extends BaseApi
      */
     public function detail($params = array())
     {
-        return $this->post('/task/detail', $params);
+        return $this->postWithAccessToken('/task/detail', $params);
     }
 
     /**
@@ -35,7 +35,7 @@ class Task extends BaseApi
      */
     public function assignUser($params = array())
     {
-        return $this->post('/task/assign-user', $params);
+        return $this->postWithAccessToken('/task/assign-user', $params);
     }
 
     /**
@@ -47,7 +47,7 @@ class Task extends BaseApi
     {
         $default = ["limit" => 10, "page" => 1];
         $params = array_merge($default, $params);
-        return $this->post('/stat/task', $params);
+        return $this->postWithAccessToken('/stat/task', $params);
     }
 
     /**
@@ -57,7 +57,7 @@ class Task extends BaseApi
      */
     public function execute($params = array())
     {
-        return $this->post('/task/execute', $params);
+        return $this->postWithAccessToken('/task/execute', $params);
     }
 
     /**
@@ -67,7 +67,7 @@ class Task extends BaseApi
      */
     public function execute2($params = array())
     {
-        return $this->post('/task/execute', $params);
+        return $this->postWithAccessToken('/task/execute', $params);
     }
 
     /**
@@ -78,7 +78,7 @@ class Task extends BaseApi
     public function execute3($params = array())
     {
         $params = http_build_query($params);
-        return $this->post('/task/execute', $params);
+        return $this->postWithAccessToken('/task/execute', $params);
     }
 
     /**
@@ -88,7 +88,7 @@ class Task extends BaseApi
      */
     public function resource($params = array())
     {
-        return $this->post('/task/resource', $params);
+        return $this->postWithAccessToken('/task/resource', $params);
     }
 
     /**
@@ -98,7 +98,7 @@ class Task extends BaseApi
      */
     public function workList($params = array())
     {
-        return $this->post('/work/list', $params);
+        return $this->postWithAccessToken('/work/list', $params);
     }
 
     /**
@@ -108,7 +108,7 @@ class Task extends BaseApi
      */
     public function records($params = array())
     {
-        return $this->post('/work/records', $params);
+        return $this->postWithAccessToken('/work/records', $params);
     }
 
     /**
@@ -118,7 +118,7 @@ class Task extends BaseApi
      */
     public function result($params = array())
     {
-        return $this->post('/work/result', $params);
+        return $this->postWithAccessToken('/work/result', $params);
     }
 
     /**
@@ -128,7 +128,7 @@ class Task extends BaseApi
      */
     public function getCrowdsourcingTaskList($params = array())
     {
-        return $this->post('/site/get-crowdsourcing-task-list', $params);
+        return $this->postWithAccessToken('/site/get-crowdsourcing-task-list', $params);
     }
 
     /**
@@ -138,7 +138,7 @@ class Task extends BaseApi
      */
     public function tasks($params = array())
     {
-        return $this->post('/task/tasks', $params);
+        return $this->postWithAccessToken('/task/tasks', $params);
     }
 
     /**
@@ -148,7 +148,7 @@ class Task extends BaseApi
      */
     public function userStatList($params = array())
     {
-        return $this->post('/stat/user-stat-list', $params);
+        return $this->postWithAccessToken('/stat/user-stat-list', $params);
     }
 
 }

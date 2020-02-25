@@ -34,6 +34,8 @@ if (!empty($result['error']))
 }
 var_dump($result['data']);
 
+var_dump($saasapi->getUserId());
+
 $userInfo = $saasapi->user->detail();
 var_dump($userInfo);
 

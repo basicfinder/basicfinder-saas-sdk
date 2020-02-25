@@ -22,41 +22,39 @@ class BaseApi
     {
         return $this->api->getUserId();
     }
-
+    
     /**
      * GET http request
+     * 
      * @param $uri
      * @param $params
-     * @param bool $needAccessToken
      * @return bool|mixed|string
      */
-    public function get($uri, $params, $needAccessToken = true)
+    public function get($uri, $params)
     {
-        return $this->api->request($uri, $params, $needAccessToken, 'GET');
+        return $this->api->request($uri, $params, 'GET');
+    }
+    
+    public function getWithAccessToken($uri, $params)
+    {
+        return $this->api->requestWithAccesstoken($uri, $params, 'GET');
     }
 
     /**
      * POST http request
+     * 
      * @param $uri
      * @param $params
-     * @param bool $needAccessToken
      * @return bool|mixed|string
      */
-    public function post($uri, $params, $needAccessToken = true)
+    public function post($uri, $params)
     {
-        return $this->api->request($uri, $params, $needAccessToken, 'POST');
+        return $this->api->request($uri, $params, 'POST');
     }
-
-    /**
-     * PUT file http request
-     * @param $uri
-     * @param $params
-     * @param bool $needAccessToken
-     * @return bool|mixed|string
-     */
-    public function put($uri, $params, $needAccessToken = true)
+    
+    public function postWithAccessToken($uri, $params)
     {
-        return $this->api->request($uri, $params, $needAccessToken, 'PUT');
+        return $this->api->requestWithAccessToken($uri, $params, 'POST');
     }
-
+    
 }

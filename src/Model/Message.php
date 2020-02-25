@@ -15,7 +15,7 @@ class Message extends BaseApi
     {
         $default = ["limit" => 10, "page" => 1];
         $params = array_merge($default, $params);
-        return $this->post('/notice/list', $params);
+        return $this->postWithAccessToken('/notice/list', $params);
     }
 
     /**
@@ -25,7 +25,7 @@ class Message extends BaseApi
      */
     public function create($params = array())
     {
-        return $this->post('/notice/create', $params);
+        return $this->postWithAccessToken('/notice/create', $params);
     }
 
     /**
@@ -35,7 +35,7 @@ class Message extends BaseApi
      */
     public function update($params = array())
     {
-        return $this->post('/notice/update', $params);
+        return $this->postWithAccessToken('/notice/update', $params);
     }
 
     /**
@@ -45,7 +45,7 @@ class Message extends BaseApi
      */
     public function delete($params = array())
     {
-        return $this->post('/notice/delete', $params);
+        return $this->postWithAccessToken('/notice/delete', $params);
     }
 
     /**
@@ -57,7 +57,7 @@ class Message extends BaseApi
     {
         $default = ["limit" => 10, "page" => 1];
         $params = array_merge($default, $params);
-        return $this->post('/message/list', $params);
+        return $this->postWithAccessToken('/message/list', $params);
     }
 
     /**
@@ -67,7 +67,7 @@ class Message extends BaseApi
      */
     public function send($params = array())
     {
-        return $this->post('/message/send', $params);
+        return $this->postWithAccessToken('/message/send', $params);
     }
 
     /**
@@ -77,7 +77,7 @@ class Message extends BaseApi
      */
     public function revoke($params = array())
     {
-        return $this->post('/message/revoke', $params);
+        return $this->postWithAccessToken('/message/revoke', $params);
     }
 
     /**
@@ -87,7 +87,7 @@ class Message extends BaseApi
      */
     public function userMessages($params = array())
     {
-        return $this->post('/message/user-messages', $params);
+        return $this->postWithAccessToken('/message/user-messages', $params);
     }
 
 }

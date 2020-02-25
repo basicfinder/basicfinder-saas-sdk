@@ -2,7 +2,6 @@
 namespace BasicfinderSaas\Model;
 
 use BasicfinderSaas\Core\BaseApi;
-use BasicfinderSaas\Helper\FormatHelper;
 
 class User extends BaseApi
 {
@@ -13,7 +12,7 @@ class User extends BaseApi
      */
     public function login($params = array())
     {
-        return $this->post('/site/login', $params, false);
+        return $this->post('/site/login', $params);
     }
 
     /**
@@ -26,7 +25,7 @@ class User extends BaseApi
         if (empty($params) or !isset($params["user_id"])) {
             $params['user_id'] = $this->getUserId();
         }
-        return $this->post('/user/detail', $params);
+        return $this->postWithAccessToken('/user/detail', $params);
     }
 
     /**
@@ -38,7 +37,7 @@ class User extends BaseApi
     {
         $default = ["user_id" => $this->getUserId(), "limit" => 10, "page" => 1];
         $params = array_merge($default, $params);
-        return $this->post('/user/records', $params);
+        return $this->postWithAccessToken('/user/records', $params);
     }
 
     /**
@@ -50,7 +49,7 @@ class User extends BaseApi
     {
         $default = ["user_id" => $this->getUserId(), "limit" => 10, "page" => 1];
         $params = array_merge($default, $params);
-        return $this->post('/user/devices', $params);
+        return $this->postWithAccessToken('/user/devices', $params);
     }
 
     /**
@@ -60,7 +59,7 @@ class User extends BaseApi
      */
     public function signupCrowdsourcing($params = array())
     {
-        return $this->post('/site/signup-crowdsourcing', $params, false);
+        return $this->postWithAccessToken('/site/signup-crowdsourcing', $params, false);
     }
 
     /**
@@ -70,7 +69,7 @@ class User extends BaseApi
      */
     public function loginCrowdsourcing($params = array())
     {
-        return $this->post('/site/login-crowdsourcing', $params, false);
+        return $this->postWithAccessToken('/site/login-crowdsourcing', $params, false);
     }
 
     /**
@@ -80,7 +79,7 @@ class User extends BaseApi
      */
     public function submitQualification($params = array())
     {
-        return $this->post('/user/submit-qualification', $params);
+        return $this->postWithAccessToken('/user/submit-qualification', $params);
     }
 
     /**
@@ -90,7 +89,7 @@ class User extends BaseApi
      */
     public function qualifications($params = array())
     {
-        return $this->post('/user/qualifications', $params);
+        return $this->postWithAccessToken('/user/qualifications', $params);
     }
 
     /**
@@ -100,7 +99,7 @@ class User extends BaseApi
      */
     public function updateQualification($params = array())
     {
-        return $this->post('/user/update-qualification', $params);
+        return $this->postWithAccessToken('/user/update-qualification', $params);
     }
 
     /**
@@ -110,7 +109,7 @@ class User extends BaseApi
      */
     public function epaies($params = array())
     {
-        return $this->post('/user/epaies', $params);
+        return $this->postWithAccessToken('/user/epaies', $params);
     }
 
     /**
@@ -120,7 +119,7 @@ class User extends BaseApi
      */
     public function createEpay($params = array())
     {
-        return $this->post('/user/create-epay', $params);
+        return $this->postWithAccessToken('/user/create-epay', $params);
     }
 
     /**
@@ -130,7 +129,7 @@ class User extends BaseApi
      */
     public function updateEpay($params = array())
     {
-        return $this->post('/user/update-epay', $params);
+        return $this->postWithAccessToken('/user/update-epay', $params);
     }
 
     /**
@@ -140,7 +139,7 @@ class User extends BaseApi
      */
     public function stat($params = array())
     {
-        return $this->post('/user/stat', $params);
+        return $this->postWithAccessToken('/user/stat', $params);
     }
 
     /**
@@ -150,7 +149,7 @@ class User extends BaseApi
      */
     public function publicConfig($params = array())
     {
-        return $this->post('/site/public-config', $params);
+        return $this->postWithAccessToken('/site/public-config', $params);
     }
 
     /**
@@ -159,7 +158,7 @@ class User extends BaseApi
      */
     public function create($params = array())
     {
-        return $this->post('/user/create', $params);
+        return $this->postWithAccessToken('/user/create', $params);
     }
 
     /**
@@ -169,7 +168,7 @@ class User extends BaseApi
      */
     public function users($params = array())
     {
-        return $this->post('/user/users', $params);
+        return $this->postWithAccessToken('/user/users', $params);
     }
 
     /**
@@ -179,7 +178,7 @@ class User extends BaseApi
      */
     public function form($params = array())
     {
-        return $this->post('/user/form', $params);
+        return $this->postWithAccessToken('/user/form', $params);
     }
 
     /**
@@ -189,7 +188,7 @@ class User extends BaseApi
      */
     public function update($params = array())
     {
-        return $this->post('/user/update', $params);
+        return $this->postWithAccessToken('/user/update', $params);
     }
 
 }

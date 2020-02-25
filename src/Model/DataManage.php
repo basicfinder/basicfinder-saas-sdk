@@ -13,7 +13,7 @@ class DataManage extends BaseApi
      */
     public function form($params = array())
     {
-        return $this->post('/datamanage/form', $params);
+        return $this->postWithAccessToken('/datamanage/form', $params);
     }
 
     /**
@@ -23,7 +23,7 @@ class DataManage extends BaseApi
      */
     public function create($params = array())
     {
-        return $this->post('/datamanage/create', $params);
+        return $this->postWithAccessToken('/datamanage/create', $params);
     }
 
     /**
@@ -33,7 +33,7 @@ class DataManage extends BaseApi
      */
     public function delete($params = array())
     {
-        return $this->post('/datamanage/delete', $params);
+        return $this->postWithAccessToken('/datamanage/delete', $params);
     }
 
     /**
@@ -43,7 +43,7 @@ class DataManage extends BaseApi
      */
     public function detail($params = array())
     {
-        return $this->post('/datamanage/detail', $params);
+        return $this->postWithAccessToken('/datamanage/detail', $params);
     }
 
     /**
@@ -53,7 +53,7 @@ class DataManage extends BaseApi
      */
     public function managerList($params = array())
     {
-        return $this->post('/datamanage/list', $params);
+        return $this->postWithAccessToken('/datamanage/list', $params);
     }
 
     /**
@@ -63,7 +63,7 @@ class DataManage extends BaseApi
      */
     public function getAmazonConfig($params = array())
     {
-        return $this->post('/datamanage/get-amazon-config', $params);
+        return $this->postWithAccessToken('/datamanage/get-amazon-config', $params);
     }
 
     /**
@@ -73,7 +73,7 @@ class DataManage extends BaseApi
      */
     public function checkCameraParamFile($params = array())
     {
-        return $this->post('/datamanage/check-camera-param-file', $params);
+        return $this->postWithAccessToken('/datamanage/check-camera-param-file', $params);
     }
 
     /**
@@ -83,7 +83,7 @@ class DataManage extends BaseApi
      */
     public function uploadType($params = array())
     {
-        return $this->post('/datamanage/upload-type', $params);
+        return $this->postWithAccessToken('/datamanage/upload-type', $params);
     }
 
 

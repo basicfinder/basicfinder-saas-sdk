@@ -31,7 +31,7 @@ class Project extends BaseApi
      */
     public function projects($params = array())
     {
-        return $this->post('/project/projects', $params);
+        return $this->postWithAccessToken('/project/projects', $params);
     }
 
     /**
@@ -42,7 +42,7 @@ class Project extends BaseApi
      */
     public function create($params = array())
     {
-        return $this->post('/project/create', $params);
+        return $this->postWithAccessToken('/project/create', $params);
     }
 
     /**
@@ -53,7 +53,7 @@ class Project extends BaseApi
      */
     public function submit($params = array())
     {
-        return $this->post('/project/submit', $params);
+        return $this->postWithAccessToken('/project/submit', $params);
     }
 
     /**
@@ -64,7 +64,7 @@ class Project extends BaseApi
      */
     public function getData($params = array())
     {
-        return $this->post('/project/get-data', $params);
+        return $this->postWithAccessToken('/project/get-data', $params);
     }
 
     /**
@@ -75,7 +75,7 @@ class Project extends BaseApi
      */
     public function assignData($params = array())
     {
-        return $this->post('/project/assign-data', $params);
+        return $this->postWithAccessToken('/project/assign-data', $params);
     }
 
     /**
@@ -86,7 +86,7 @@ class Project extends BaseApi
      */
     public function getStep($params = array())
     {
-        return $this->post('/project/get-step', $params);
+        return $this->postWithAccessToken('/project/get-step', $params);
     }
 
     /**
@@ -98,7 +98,7 @@ class Project extends BaseApi
     public function setStep($params = array())
     {
         $params = http_build_query($params);
-        return $this->post('/project/set-step', $params);
+        return $this->postWithAccessToken('/project/set-step', $params);
     }
 
     /**
@@ -109,7 +109,7 @@ class Project extends BaseApi
      */
     public function getTaskStep($params = array())
     {
-        return $this->post('/project/get-task', $params);
+        return $this->postWithAccessToken('/project/get-task', $params);
     }
 
     /**
@@ -121,7 +121,7 @@ class Project extends BaseApi
     public function setTask($params = array())
     {
         $params = http_build_query($params);
-        return $this->post('/project/set-task', $params);
+        return $this->postWithAccessToken('/project/set-task', $params);
     }
 
     /**
@@ -131,7 +131,7 @@ class Project extends BaseApi
      */
     public function detail($params = array())
     {
-        return $this->post('/project/detail', $params);
+        return $this->postWithAccessToken('/project/detail', $params);
     }
 
     /**
@@ -143,7 +143,7 @@ class Project extends BaseApi
     {
         $default = ["limit" => 10, "page" => 1];
         $params = array_merge($default, $params);
-        return $this->post('/data/list', $params);
+        return $this->postWithAccessToken('/data/list', $params);
     }
 
     /**
@@ -155,7 +155,7 @@ class Project extends BaseApi
     {
         $default = ["limit" => 10, "page" => 1];
         $params = array_merge($default, $params);
-        return $this->post('/stat/user', $params);
+        return $this->postWithAccessToken('/stat/user', $params);
     }
 
     /**
@@ -165,7 +165,7 @@ class Project extends BaseApi
      */
     public function copy($params = array())
     {
-        return $this->post('/project/copy', $params);
+        return $this->postWithAccessToken('/project/copy', $params);
     }
 
     /**
@@ -175,7 +175,7 @@ class Project extends BaseApi
      */
     public function delete($params = array())
     {
-        return $this->post('/project/delete', $params);
+        return $this->postWithAccessToken('/project/delete', $params);
     }
 
     /**
@@ -185,7 +185,7 @@ class Project extends BaseApi
      */
     public function pause($params = array())
     {
-        return $this->post('/project/pause', $params);
+        return $this->postWithAccessToken('/project/pause', $params);
     }
 
     /**
@@ -195,7 +195,7 @@ class Project extends BaseApi
      */
     public function projectContinue($params = array())
     {
-        return $this->post('/project/continue', $params);
+        return $this->postWithAccessToken('/project/continue', $params);
     }
 
     /**
@@ -205,7 +205,7 @@ class Project extends BaseApi
      */
     public function finish($params = array())
     {
-        return $this->post('/project/finish', $params);
+        return $this->postWithAccessToken('/project/finish', $params);
     }
 
     /**
@@ -215,7 +215,7 @@ class Project extends BaseApi
      */
     public function recovery($params = array())
     {
-        return $this->post('/project/recovery', $params);
+        return $this->postWithAccessToken('/project/recovery', $params);
     }
 
     /**
@@ -225,7 +225,7 @@ class Project extends BaseApi
      */
     public function form($params = array())
     {
-        return $this->post('/project/form', $params);
+        return $this->postWithAccessToken('/project/form', $params);
     }
 
     /**
@@ -235,7 +235,7 @@ class Project extends BaseApi
      */
     public function failauction($params = array())
     {
-        return $this->post('/project/failauction', $params);
+        return $this->postWithAccessToken('/project/failauction', $params);
     }
 
 

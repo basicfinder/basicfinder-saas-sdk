@@ -13,7 +13,7 @@ class Category extends BaseApi
      */
     public function categories($params = array())
     {
-        return $this->post('/category/categories', $params);
+        return $this->postWithAccessToken('/category/categories', $params);
     }
 
     /**
@@ -24,7 +24,7 @@ class Category extends BaseApi
     public function create($params = array())
     {
         $params = http_build_query($params);
-        return $this->post('/category/create', $params);
+        return $this->postWithAccessToken('/category/create', $params);
     }
 
     /**
@@ -35,7 +35,7 @@ class Category extends BaseApi
     public function update($params = array())
     {
         $params = http_build_query($params);
-        return $this->post('/category/update', $params);
+        return $this->postWithAccessToken('/category/update', $params);
     }
 
     /**
@@ -45,7 +45,7 @@ class Category extends BaseApi
      */
     public function delete($params = array())
     {
-        return $this->post('/category/delete', $params);
+        return $this->postWithAccessToken('/category/delete', $params);
     }
 
 }

@@ -12,7 +12,7 @@ class Tender extends BaseApi
      */
     public function update($params = array())
     {
-        return $this->post('/tender/update', $params);
+        return $this->postWithAccessToken('/tender/update', $params);
     }
 
     /**
@@ -22,7 +22,7 @@ class Tender extends BaseApi
      */
     public function applySubmit($params = array())
     {
-        return $this->post('/tender/apply-submit', $params);
+        return $this->postWithAccessToken('/tender/apply-submit', $params);
     }
 
     /**
@@ -32,7 +32,7 @@ class Tender extends BaseApi
      */
     public function applyList($params = array())
     {
-        return $this->post('/tender/apply-list', $params);
+        return $this->postWithAccessToken('/tender/apply-list', $params);
     }
 
     /**
@@ -42,7 +42,7 @@ class Tender extends BaseApi
      */
     public function applyDetail($params = array())
     {
-        return $this->post('/tender/apply-detail', $params);
+        return $this->postWithAccessToken('/tender/apply-detail', $params);
     }
 
     /**
@@ -52,7 +52,7 @@ class Tender extends BaseApi
      */
     public function applyUpdate($params = array())
     {
-        return $this->post('/tender/apply-update', $params);
+        return $this->postWithAccessToken('/tender/apply-update', $params);
     }
 
 }

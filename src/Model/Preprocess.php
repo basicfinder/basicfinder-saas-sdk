@@ -13,7 +13,7 @@ class Preprocess extends BaseApi
      */
     public function modelList($params = array())
     {
-        return $this->post('/aimodel/list', $params);
+        return $this->postWithAccessToken('/aimodel/list', $params);
     }
 
     /**
@@ -23,7 +23,7 @@ class Preprocess extends BaseApi
      */
     public function create($params = array())
     {
-        return $this->post('/aimodel/create', $params);
+        return $this->postWithAccessToken('/aimodel/create', $params);
     }
 
     /**
@@ -33,7 +33,7 @@ class Preprocess extends BaseApi
      */
     public function update($params = array())
     {
-        return $this->post('/aimodel/update', $params);
+        return $this->postWithAccessToken('/aimodel/update', $params);
     }
 
     /**
@@ -43,7 +43,7 @@ class Preprocess extends BaseApi
      */
     public function delete($params = array())
     {
-        return $this->post('/aimodel/delete', $params);
+        return $this->postWithAccessToken('/aimodel/delete', $params);
     }
 
     /**
@@ -53,7 +53,7 @@ class Preprocess extends BaseApi
      */
     public function aimodelCategoryList($params = array())
     {
-        return $this->post('/aimodel/category-list', $params);
+        return $this->postWithAccessToken('/aimodel/category-list', $params);
     }
 
     /**
@@ -64,7 +64,7 @@ class Preprocess extends BaseApi
      */
     public function create2($params = array())
     {
-        return $this->post('/aimodel/create', $params);
+        return $this->postWithAccessToken('/aimodel/create', $params);
     }
 
     /**
@@ -76,7 +76,7 @@ class Preprocess extends BaseApi
     {
         $params["op"] = "aimodel";
         $params["aimodel_id"] = 39;
-        return $this->post('/task/execute', $params);
+        return $this->postWithAccessToken('/task/execute', $params);
     }
 
     /**
@@ -88,7 +88,7 @@ class Preprocess extends BaseApi
     {
         $params["op"] = "aimodel";
         $params["aimodel_id"] = 86;
-        return $this->post('/task/execute', $params);
+        return $this->postWithAccessToken('/task/execute', $params);
     }
 
     /**
@@ -99,7 +99,7 @@ class Preprocess extends BaseApi
     public function execute3($params = array())
     {
         $params["op"] = "text-intention";
-        return $this->post('/task/execute', $params);
+        return $this->postWithAccessToken('/task/execute', $params);
     }
 
 

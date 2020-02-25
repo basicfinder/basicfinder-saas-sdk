@@ -13,7 +13,7 @@ class Team extends BaseApi
      */
     public function create($params = array())
     {
-        return $this->post('/team/create', $params);
+        return $this->postWithAccessToken('/team/create', $params);
     }
 
     /**
@@ -23,7 +23,7 @@ class Team extends BaseApi
      */
     public function update($params = array())
     {
-        return $this->post('/team/update', $params);
+        return $this->postWithAccessToken('/team/update', $params);
     }
 
     /**
@@ -33,7 +33,7 @@ class Team extends BaseApi
      */
     public function teams($params = array())
     {
-        return $this->post('/team/teams', $params);
+        return $this->postWithAccessToken('/team/teams', $params);
     }
 
     /**
@@ -43,7 +43,7 @@ class Team extends BaseApi
      */
     public function delete($params = array())
     {
-        return $this->post('/team/delete', $params);
+        return $this->postWithAccessToken('/team/delete', $params);
     }
 
     /**
@@ -53,7 +53,7 @@ class Team extends BaseApi
      */
     public function restore($params = array())
     {
-        return $this->post('/team/restore', $params);
+        return $this->postWithAccessToken('/team/restore', $params);
     }
 
     /**
@@ -63,7 +63,7 @@ class Team extends BaseApi
      */
     public function statTeam($params = array())
     {
-        return $this->post('/stat/team', $params);
+        return $this->postWithAccessToken('/stat/team', $params);
     }
 
     /**
@@ -73,7 +73,7 @@ class Team extends BaseApi
      */
     public function users($params = array())
     {
-        return $this->post('/team/users', $params);
+        return $this->postWithAccessToken('/team/users', $params);
     }
 
     /**
@@ -83,7 +83,7 @@ class Team extends BaseApi
      */
     public function userCreate($params = array())
     {
-        return $this->post('/team/user-create', $params);
+        return $this->postWithAccessToken('/team/user-create', $params);
     }
 
     /**
@@ -93,7 +93,7 @@ class Team extends BaseApi
      */
     public function userUpdate($params = array())
     {
-        return $this->post('/team/user-update', $params);
+        return $this->postWithAccessToken('/team/user-update', $params);
     }
 
     /**
@@ -103,7 +103,7 @@ class Team extends BaseApi
      */
     public function userDelete($params = array())
     {
-        return $this->post('/team/user-delete', $params);
+        return $this->postWithAccessToken('/team/user-delete', $params);
     }
 
     /**
@@ -113,7 +113,7 @@ class Team extends BaseApi
      */
     public function invitationToken($params = array())
     {
-        return $this->post('/invitation/create', $params);
+        return $this->postWithAccessToken('/invitation/create', $params);
     }
 
     /**
@@ -123,7 +123,7 @@ class Team extends BaseApi
      */
     public function signupByInvitation($params = array())
     {
-        return $this->post('/site/signup-by-invitation', $params);
+        return $this->postWithAccessToken('/site/signup-by-invitation', $params);
     }
 
     /**
@@ -133,7 +133,7 @@ class Team extends BaseApi
      */
     public function submitSignupByInvitation($params = array())
     {
-        return $this->post('/site/signup-by-invitation', $params);
+        return $this->postWithAccessToken('/site/signup-by-invitation', $params);
     }
 
     /**
@@ -143,7 +143,7 @@ class Team extends BaseApi
      */
     public function importParse($params = array())
     {
-        return $this->post('/team/import-parse', $params);
+        return $this->postWithAccessToken('/team/import-parse', $params);
     }
 
     /**
@@ -153,7 +153,7 @@ class Team extends BaseApi
      */
     public function importSubmit($params = array())
     {
-        return $this->post('/team/import-submit', $params);
+        return $this->postWithAccessToken('/team/import-submit', $params);
     }
 
 }

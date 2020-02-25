@@ -13,7 +13,7 @@ class Word extends BaseApi
      */
     public function dictList($params = array())
     {
-        return $this->post('/dict/list', $params);
+        return $this->postWithAccessToken('/dict/list', $params);
     }
 
     /**
@@ -23,7 +23,7 @@ class Word extends BaseApi
      */
     public function form($params = array())
     {
-        return $this->post('/dict/form', $params);
+        return $this->postWithAccessToken('/dict/form', $params);
     }
 
     /**
@@ -33,7 +33,7 @@ class Word extends BaseApi
      */
     public function create($params = array())
     {
-        return $this->post('/dict/create', $params);
+        return $this->postWithAccessToken('/dict/create', $params);
     }
 
     /**
@@ -43,7 +43,7 @@ class Word extends BaseApi
      */
     public function delete($params = array())
     {
-        return $this->post('/dict/delete', $params);
+        return $this->postWithAccessToken('/dict/delete', $params);
     }
 
 }
