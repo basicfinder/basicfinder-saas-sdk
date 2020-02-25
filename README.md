@@ -11,9 +11,9 @@ composer require basicfinder/basicfinder-saas-sdk
 
 ```php
 
-use BasicfinderSaas\BasicfinderSaas;
+use BasicfinderSaas\SaasApi;
 
-$saasapi = new BasicfinderSaas();
+$saasapi = new SaasApi();
 
 $params = [
     'username' => 'your email',

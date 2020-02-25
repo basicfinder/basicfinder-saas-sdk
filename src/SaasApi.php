@@ -12,7 +12,7 @@ use BasicfinderSaas\Helper\FormatHelper;
  * @version v1 20191218
  * 
  */
-class BasicfinderSaas
+class SaasApi
 {
     private $access_token;
     private $appKey = null;

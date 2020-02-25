@@ -13,9 +13,9 @@ defined('BASICFINDER_ENV') or define('BASICFINDER_ENV', 'dev');
 
 include __DIR__.'/../../autoload.php';
 
-use BasicfinderSaas\BasicfinderSaas;
+use BasicfinderSaas\SaasApi;
 
-$saasapi = new BasicfinderSaas();
+$saasapi = new SaasApi();
 
 $account = require(__DIR__.'/../config/account.php');
 $result = $saasapi->user->login($account);

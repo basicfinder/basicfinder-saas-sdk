@@ -1,18 +1,18 @@
 <?php
 namespace BasicfinderSaas\Core;
 
-use BasicfinderSaas\BasicfinderSaas;
+use BasicfinderSaas\SaasApi;
 
 class BaseApi
 {
     /**
      * @var BasicfinderSaas
      */
-    private $saas;
+    private $api;
 
-    public function __construct(BasicfinderSaas $saas)
+    public function __construct(SaasApi $api)
     {
-        $this->saas = $saas;
+        $this->api = $api;
     }
 
     /**
@@ -20,7 +20,7 @@ class BaseApi
      */
     protected function getUserId()
     {
-        return $this->saas->getUserId();
+        return $this->api->getUserId();
     }
 
     /**
@@ -32,7 +32,7 @@ class BaseApi
      */
     public function get($uri, $params, $needAccessToken = true)
     {
-        return $this->saas->request($uri, $params, $needAccessToken, 'GET');
+        return $this->api->request($uri, $params, $needAccessToken, 'GET');
     }
 
     /**
@@ -44,7 +44,7 @@ class BaseApi
      */
     public function post($uri, $params, $needAccessToken = true)
     {
-        return $this->saas->request($uri, $params, $needAccessToken, 'POST');
+        return $this->api->request($uri, $params, $needAccessToken, 'POST');
     }
 
     /**
@@ -56,7 +56,7 @@ class BaseApi
      */
     public function put($uri, $params, $needAccessToken = true)
     {
-        return $this->saas->request($uri, $params, $needAccessToken, 'PUT');
+        return $this->api->request($uri, $params, $needAccessToken, 'PUT');
     }
 
 }

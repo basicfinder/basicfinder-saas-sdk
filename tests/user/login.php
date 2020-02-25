@@ -1,12 +1,33 @@
 <?php
 
-require(__DIR__ . '/../../src/BasicfinderSaas.php');
-use BasicfinderSaas\BasicfinderSaas;
+/*****************************************************
+ * 测试:获取项目的项目列表
+ * 
+ * 使用方法:
+ * php projects.php
+ * ***************************************************
+ */
 
 
-$saas = new BasicfinderSaas();
+defined('BASICFINDER_ENV') or define('BASICFINDER_ENV', 'dev');
 
-$saas->auth('liujianping@basicfinder.com', 'bf123456');
-var_dump($saas->user->detail());
+include __DIR__.'/../../autoload.php';
+
+use BasicfinderSaas\SaasApi;
+
+$saasapi = new SaasApi();
+
+$account = require(__DIR__.'/../config/account.php');
+$result = $saasapi->user->login($account);
+
+if (!empty($result['error']))
+{
+    var_dump($result);
+    exit();
+}
+var_dump($result['data']);
+
+$userInfo = $saasapi->user->detail();
+var_dump($userInfo);
 
 
