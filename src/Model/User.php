@@ -6,23 +6,6 @@ use BasicfinderSaas\Core\BaseApi;
 class User extends BaseApi
 {
     /**
-     * 通过用户名和密码，获取用户身份凭证（access_token）。后续接口都会通过验证access_token来获取用户信息，以实现各个功能的操作。
-     * @param $params
-     * 可选参数
-     *  username  是   String  账号
-     *  password  是   String  密码
-     *  app_key   是   String  应用平台
-     *  app_version  是   String 应用版本号
-     *  device_name  是   String   登录设备名称
-     *  device_number 是  String   登录设备号
-     * @return bool|mixed|string
-     */
-    public function login($params = array())
-    {
-        return $this->post('/site/login', $params);
-    }
-
-    /**
      * 通过user_id字段获取对应的用户详情信息（用户的租户、团队、ftp、角色等）
      * @param $params
      * 可选参数
@@ -77,26 +60,6 @@ class User extends BaseApi
         $default = ["user_id" => $this->getUserId(), "limit" => 10, "page" => 1];
         $params = array_merge($default, $params);
         return $this->postWithAccessToken('/user/devices', $params);
-    }
-
-    /**
-     * 众包注册
-     * @param $params
-     * @return bool|mixed|string
-     */
-    public function signupCrowdsourcing($params = array())
-    {
-        return $this->postWithAccessToken('/site/signup-crowdsourcing', $params, false);
-    }
-
-    /**
-     * 众包登录
-     * @param $params
-     * @return bool|mixed|string
-     */
-    public function loginCrowdsourcing($params = array())
-    {
-        return $this->postWithAccessToken('/site/login-crowdsourcing', $params, false);
     }
 
     /**
