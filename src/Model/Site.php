@@ -12,7 +12,7 @@ class Site extends BaseApi
      */
     public function signupCrowdsourcing($params = array())
     {
-        return $this->post('/site/signup-crowdsourcing', $params, false);
+        return $this->post('/site/signup-crowdsourcing', $params);
     }
     
     /**
@@ -22,7 +22,7 @@ class Site extends BaseApi
      */
     public function loginCrowdsourcing($params = array())
     {
-        return $this->post('/site/login-crowdsourcing', $params, false);
+        return $this->post('/site/login-crowdsourcing', $params);
     }
     
     /**
