@@ -1,10 +1,10 @@
 <?php
 
 /*****************************************************
- * 测试:获取用户表单
+ * 测试:获取模板列表
  *
  * 使用方法:
- * php form.php
+ * php templateList.php
  * ***************************************************
  */
 
@@ -33,9 +33,11 @@ if (!empty($result['error']))
     exit();
 }
 var_dump($result['data']);
-
-
-$formResult = $saasapi->user->form();
-var_dump($formResult);
+$params = [
+    "limit" => 5, //	    是	int	每页展示数据量
+    "page" => 1,  //	    是	int	页数
+];
+$listResult = $saasapi->template->templateList($params);
+var_dump($listResult);
 
 

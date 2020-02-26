@@ -1,10 +1,10 @@
 <?php
 
 /*****************************************************
- * 测试:获取用户表单
+ * 测试: 选择项目使用模板
  *
  * 使用方法:
- * php form.php
+ * php useTemplate.php
  * ***************************************************
  */
 
@@ -34,8 +34,10 @@ if (!empty($result['error']))
 }
 var_dump($result['data']);
 
-
-$formResult = $saasapi->user->form();
-var_dump($formResult);
+$params = [
+    "template_id" => 4355
+];
+$useTemplateResult = $saasapi->template->useTemplate($params);
+var_dump($useTemplateResult);
 
 

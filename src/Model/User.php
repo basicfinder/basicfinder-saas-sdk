@@ -199,6 +199,16 @@ class User extends BaseApi
     /**
      * 编辑用户
      * @param $params
+     * 可选参数
+        email	否	string	邮箱，唯一，最大为254位
+        password	否	string	没有值时不修改密码，有值会修改密码，密码由数字和字母组成
+        roles	    否	string	角色,多个以逗号(,)隔开
+        type	    否	int	用户平台类型
+        status	    否	string	用户状态
+        avatar	    否	string	头像
+        site_id	    否	int	租户id
+        phone	    否	string	手机号或电话，必须为5-20位
+        nickname	否	string	用户昵称，由字母、汉字、数字和点组成，2-16位
      * @return bool|mixed|string
      */
     public function update($params = array())

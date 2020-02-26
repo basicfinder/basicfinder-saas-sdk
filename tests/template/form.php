@@ -1,7 +1,7 @@
 <?php
 
 /*****************************************************
- * 测试:获取用户表单
+ * 测试:获取模板表单
  *
  * 使用方法:
  * php form.php
@@ -35,7 +35,7 @@ if (!empty($result['error']))
 var_dump($result['data']);
 
 
-$formResult = $saasapi->user->form();
+$formResult = $saasapi->template->form();
 var_dump($formResult);
 
 
