@@ -19,7 +19,7 @@ $saasapi = new SaasApi();
 
 //登录账户
 $account = require(__DIR__.'/../config/account.php');
-$result = $saasapi->user->login($account);
+$result = $saasapi->site->login($account);
 
 if (!empty($result['error']))
 {

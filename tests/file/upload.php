@@ -27,7 +27,7 @@ $account = [
     'device_name' => 'Win32',
     'device_number' => '123456'
 ];
-$result = $saasapi->user->login($account);
+$result = $saasapi->site->login($account);
 
 if (!empty($result['error']))
 {
