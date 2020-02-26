@@ -1,10 +1,10 @@
 <?php
 
 /*****************************************************
- * 测试:获取用户表单
+ * 测试:修改用户信息
  *
  * 使用方法:
- * php form.php
+ * php update.php
  * ***************************************************
  */
 
@@ -34,8 +34,11 @@ if (!empty($result['error']))
 }
 var_dump($result['data']);
 
-
-$formResult = $saasapi->user->form();
-var_dump($formResult);
+$params = [
+    "user_id" => 38032,
+    "nickname" => "update-name"
+];
+$updateResult = $saasapi->user->update($params);
+var_dump($updateResult);
 
 
