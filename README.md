@@ -23,7 +23,7 @@ $params = [
     'device_name' => 'Win32',
     'device_number' => '123456'
 ];
-$result = $saasapi->user->login($params);
+$result = $saasapi->site->login($params);
 
 if (!empty($result['error']))
 {
