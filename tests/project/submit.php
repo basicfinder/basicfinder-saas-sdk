@@ -34,8 +34,47 @@ if (!empty($result['error']))
 }
 var_dump($result['data']);
 
+//提交项目信息
 $params = [
-    "category_id" => 11
+    "project_id" => 16619,
+    "name" => "shuaiqun-ceshi",
+    "site_id" => 363,
+];
+$submitResult = $saasapi->project->submit($params);
+var_dump($submitResult);
+
+
+//提交项目数据
+$params = [
+    "project_id" => 16619,
+    "type" => 1,
+    "datamanage_id" => 613,
+];
+$submitResult = $saasapi->project->submit($params);
+var_dump($submitResult);
+
+
+//提交项目模板
+$params = [
+    "project_id" => 16619,
+    "type" => 1,
+    "template_id" => 4264,
+];
+$submitResult = $saasapi->project->submit($params);
+var_dump($submitResult);
+
+
+//提交项目审核
+$params = [
+    "project_id" => 16619,
+    "name" => "shuaiqun-ceshi",
+    "type" => 1,
+    "site_id" => 363,
+    "template_id" => 4264,
+    "category_id" => 11,
+    "step_process_id"=> 5,
+    "start_time"=> "1581995716",
+    "end_time"=> "1584587716"
 ];
 $submitResult = $saasapi->project->submit($params);
 var_dump($submitResult);

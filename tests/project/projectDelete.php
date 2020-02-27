@@ -1,10 +1,10 @@
 <?php
 
 /*****************************************************
- * 测试: 创建一个新的项目
+ * 测试: 删除项目
  *
  * 使用方法:
- * php create.php
+ * php projectDelete.php
  * ***************************************************
  */
 
@@ -35,8 +35,9 @@ if (!empty($result['error']))
 var_dump($result['data']);
 
 $params = [
-    "category_id" => 11
+    "project_id" => 16630,
 ];
-$creteResult = $saasapi->project->create($params);
-var_dump($creteResult);
+$deleteResult = $saasapi->project->delete($params);
+var_dump($deleteResult);
+
 
