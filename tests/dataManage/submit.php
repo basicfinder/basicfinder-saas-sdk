@@ -41,7 +41,7 @@ $params = [
     "file_operate" => 0,
     "file_type"=> 0
 ];
-$submitResult = $saasapi->DataManage->submit($params);
+$submitResult = $saasapi->datamanage->submit($params);
 var_dump($submitResult);
 
 

@@ -35,7 +35,7 @@ if (!empty($result['error']))
 var_dump($result['data']);
 
 
-$formResult = $saasapi->DataManage->form();
+$formResult = $saasapi->datamanage->form();
 var_dump($formResult);
 
 

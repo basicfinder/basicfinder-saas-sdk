@@ -37,7 +37,7 @@ var_dump($result['data']);
 $params = [
     "data_manage_id"=> 648
 ];
-$deleteResult = $saasapi->DataManage->delete($params);
+$deleteResult = $saasapi->datamanage->delete($params);
 var_dump($deleteResult);
 
 

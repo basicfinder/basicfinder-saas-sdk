@@ -10,7 +10,7 @@ use BasicfinderSaas\Helper\FormatHelper;
  *
  * @copyright www.basicfinder.com
  * @version v1 20191218
- * 
+ *
  */
 class SaasApi
 {
@@ -39,12 +39,12 @@ class SaasApi
     {
         return $this->userId;
     }
-    
+
     public function setUserId($userId)
     {
         return $this->userId = $userId;
     }
-    
+
     /**
      * @param $access_token
      * @return bool
@@ -80,12 +80,12 @@ class SaasApi
             return FormatHelper::result('', $requestResult['error'], $requestResult['message']);
         }
         $requestData = json_decode($requestResult['data'], true);
-        
+
         //登录时, 保存登录后的用户id和access_token
         if ($uri == '/site/login')
         {
             $loginResult = $requestData;
-            
+
             if (!empty($loginResult['error']))
             {
                 return $loginResult;
@@ -95,17 +95,17 @@ class SaasApi
                 return $loginResult;
             }
             $userInfo = $loginResult['data'];
-            
+
             if (!empty($userInfo['id']) && !empty($userInfo['access_token']))
             {
                 $this->setUserId($userInfo['id']);
                 $this->setAccessToken($userInfo['access_token']);
             }
         }
-        
+
         return $requestData;
     }
-    
+
     /**
      * @param $uri
      * @param null $data
@@ -116,17 +116,17 @@ class SaasApi
     {
         $data = (array)$data;
         $data['access_token'] = $this->getAccessToken();
-        
+
         $requestResult = HttpHelper::request($this->host . $uri, $data, $method, $headers);
         if (!empty($requestResult['error']))
         {
             return FormatHelper::result('', $requestResult['error'], $requestResult['message']);
         }
         $requestData = json_decode($requestResult['data'], true);
-        
+
         return $requestData;
     }
-    
+
     /**
      * @param $class
      * @return Object

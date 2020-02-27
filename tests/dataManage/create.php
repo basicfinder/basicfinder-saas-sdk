@@ -37,7 +37,7 @@ var_dump($result['data']);
 $params = [
     "file_type" =>0
 ];
-$createResult = $saasapi->DataManage->create($params);
+$createResult = $saasapi->datamanage->create($params);
 var_dump($createResult);
 
 
