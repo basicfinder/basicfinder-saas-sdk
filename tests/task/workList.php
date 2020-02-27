@@ -1,10 +1,10 @@
 <?php
 
 /*****************************************************
- * 测试:获取任务列表
+ * 测试:获取作业列表
  *
  * 使用方法:
- * php taskList.php
+ * php workList.php
  * ***************************************************
  */
 
@@ -34,10 +34,11 @@ if (!empty($result['error']))
 }
 var_dump($result['data']);
 $params = [
+    "task_id" => 21001,
     "limit" => 5, //	    是	int	每页展示数据量
     "page" => 1,  //	    是	int	页数
 ];
-$taskListResult = $saasapi->task->taskList($params);
-var_dump($taskListResult);
+$workListResult = $saasapi->task->workList($params);
+var_dump($workListResult);
 
 

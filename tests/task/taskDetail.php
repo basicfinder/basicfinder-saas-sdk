@@ -1,10 +1,10 @@
 <?php
 
 /*****************************************************
- * 测试:获取任务列表
+ * 测试:获取任务详情
  *
  * 使用方法:
- * php taskList.php
+ * php taskDetail.php
  * ***************************************************
  */
 
@@ -32,12 +32,12 @@ if (!empty($result['error']))
     var_dump($result);
     exit();
 }
+
 var_dump($result['data']);
 $params = [
-    "limit" => 5, //	    是	int	每页展示数据量
-    "page" => 1,  //	    是	int	页数
+    "task_id" => 20001
 ];
-$taskListResult = $saasapi->task->taskList($params);
-var_dump($taskListResult);
+$detailResult = $saasapi->task->detail($params);
+var_dump($detailResult);
 
 

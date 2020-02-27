@@ -1,10 +1,10 @@
 <?php
 
 /*****************************************************
- * 测试:获取任务列表
+ * 测试:获取作业操作记录
  *
  * 使用方法:
- * php taskList.php
+ * php records.php
  * ***************************************************
  */
 
@@ -32,12 +32,13 @@ if (!empty($result['error']))
     var_dump($result);
     exit();
 }
+
 var_dump($result['data']);
 $params = [
-    "limit" => 5, //	    是	int	每页展示数据量
-    "page" => 1,  //	    是	int	页数
+    "project_id" => 16630,
+    "data_id" => 102291
 ];
-$taskListResult = $saasapi->task->taskList($params);
-var_dump($taskListResult);
+$recordsResult = $saasapi->task->records($params);
+var_dump($recordsResult);
 
 

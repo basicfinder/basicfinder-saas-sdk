@@ -1,10 +1,10 @@
 <?php
 
 /*****************************************************
- * 测试:获取任务列表
+ * 测试:提交任务
  *
  * 使用方法:
- * php taskList.php
+ * php executeSubmit.php
  * ***************************************************
  */
 
@@ -18,9 +18,9 @@ use BasicfinderSaas\SaasApi;
 $saasapi = new SaasApi();
 
 $account = [
-    'username' => '1234566@qq.com',
+    'username' => 'teammanager@qq.com',
     'password' => 'bf123456',
-    'app_key' => 'pc-passport',
+    'app_key' => 'pc-team',
     'app_version' => '1.0.0',
     'device_name' => 'Win32',
     'device_number' => '123456'
@@ -33,11 +33,15 @@ if (!empty($result['error']))
     exit();
 }
 var_dump($result['data']);
+
 $params = [
-    "limit" => 5, //	    是	int	每页展示数据量
-    "page" => 1,  //	    是	int	页数
+    "project_id" => 16630,
+    "task_id" => 21001,
+    "data_id" => 10229,
+    "result" => '{"102291":{"data":[],"is_difficult":0,"workerstat":{"duration":4,"activeDuration":2}}}',
+    "op" => "submit"
 ];
-$taskListResult = $saasapi->task->taskList($params);
-var_dump($taskListResult);
+$executeResult = $saasapi->task->execute3($params);
+var_dump($executeResult);
 
 

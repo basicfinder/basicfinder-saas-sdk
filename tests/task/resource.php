@@ -1,10 +1,10 @@
 <?php
 
 /*****************************************************
- * 测试:获取任务列表
+ * 测试:获取资源
  *
  * 使用方法:
- * php taskList.php
+ * php resource.php
  * ***************************************************
  */
 
@@ -32,12 +32,14 @@ if (!empty($result['error']))
     var_dump($result);
     exit();
 }
+
 var_dump($result['data']);
 $params = [
-    "limit" => 5, //	    是	int	每页展示数据量
-    "page" => 1,  //	    是	int	页数
+    "project_id" => 16630,
+    "data_id" => 102291,
+    "type" => 'ori',
 ];
-$taskListResult = $saasapi->task->taskList($params);
-var_dump($taskListResult);
+$resourceResult = $saasapi->task->resource($params);
+var_dump($resourceResult);
 
 
