@@ -84,7 +84,7 @@ class Task extends BaseApi
         data_ids	否	int	领取指定的作业id
      * @return bool|mixed|string
      */
-    public function execute($params = array())
+    public function executeFetch($params = array())
     {
         return $this->postWithAccessToken('/task/execute', $params);
     }
@@ -100,7 +100,7 @@ class Task extends BaseApi
         user_id	否	int	作业所属用户id
      * @return bool|mixed|string
      */
-    public function execute2($params = array())
+    public function execute($params = array())
     {
         return $this->postWithAccessToken('/task/execute', $params);
     }
@@ -117,10 +117,59 @@ class Task extends BaseApi
         user_id	否	int	user ID
      * @return bool|mixed|string
      */
-    public function execute3($params = array())
+    public function executeSubmit($params = array())
     {
         return $this->postWithAccessToken('/task/execute', $params);
     }
+
+    /**
+     * 挂起作业修改
+     * @param $params
+     * 可选参数
+         project_id	是	int	项目id
+         task_id	是	int	任务id
+         op	是	String	固定为:difficult_revise
+         data_id	是	int	作业id
+     * @return bool|mixed|string
+     */
+    public function executeDifficult($params = array())
+    {
+        return $this->postWithAccessToken('/task/execute', $params);
+    }
+
+
+    /**
+     * 作业重做
+     * @param $params
+     * 可选参数
+         project_id	是	int	项目id
+         task_id	是	int	任务id
+         user_id	否	int	用户id
+         op	是	String	固定为:redo
+         data_id	是	int	作业id
+     * @return bool|mixed|string
+     */
+    public function executeRedo($params = array())
+    {
+        return $this->postWithAccessToken('/task/execute', $params);
+    }
+
+    /**
+     * 驳回作业修改
+     * @param $params
+     * 可选参数
+     project_id	是	int	项目id
+     task_id	是	int	任务id
+     user_id	是	int	用户id
+     op	是	String	固定为:refuse_revise
+     data_id	是	int	作业id
+     * @return bool|mixed|string
+     */
+    public function executeRefuse($params = array())
+    {
+        return $this->postWithAccessToken('/task/execute', $params);
+    }
+
 
     /**
      * 获取资源

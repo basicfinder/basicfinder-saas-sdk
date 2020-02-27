@@ -40,7 +40,7 @@ $params = [
     "data_sort" => 0,
     "op" => "fetch"
 ];
-$executeResult = $saasapi->task->execute($params);
+$executeResult = $saasapi->task->executeFetch($params);
 var_dump($executeResult);
 
 

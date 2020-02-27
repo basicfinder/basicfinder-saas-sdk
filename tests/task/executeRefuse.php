@@ -1,10 +1,10 @@
 <?php
 
 /*****************************************************
- * 测试:提交任务
+ * 测试:驳回作业修改
  *
  * 使用方法:
- * php executeSubmit.php
+ * php executeRefuse.php
  * ***************************************************
  */
 
@@ -38,10 +38,10 @@ $params = [
     "project_id" => 16630,
     "task_id" => 21001,
     "data_id" => 102291,
-    "result" => '{"102291":{"data":[],"is_difficult":0,"workerstat":{"duration":4,"activeDuration":2}}}',
-    "op" => "submit"
+    "user_id" => 38033,
+    "op" => "refuse_revise"
 ];
-$executeResult = $saasapi->task->executeSubmit($params);
+$executeResult = $saasapi->task->executeRefuse($params);
 var_dump($executeResult);
 
 
