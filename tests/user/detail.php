@@ -1,10 +1,10 @@
 <?php
 
 /*****************************************************
- * 测试: 获取项目数据列表
+ * 测试:获取用户信息
  *
  * 使用方法:
- * php dataList.php
+ * php detail.php
  * ***************************************************
  */
 
@@ -35,9 +35,9 @@ if (!empty($result['error']))
 var_dump($result['data']);
 
 $params = [
-    "project_id" => 16630,
+    "user_id" => 38032
 ];
-$dataListResult = $saasapi->project->dataList($params);
-var_dump($dataListResult);
+$detailResult = $saasapi->user->detail($params);
+var_dump($detailResult);
 
 
