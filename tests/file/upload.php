@@ -20,8 +20,8 @@ use BasicfinderSaas\SaasApi;
 $saasapi = new SaasApi();
 
 $account = [
-    'username' => '1234566@qq.com',
-    'password' => 'bf123456',
+    'username' => 'your email',
+    'password' => 'your password',
     'app_key' => 'pc-passport',
     'app_version' => '1.0.0',
     'device_name' => 'Win32',
